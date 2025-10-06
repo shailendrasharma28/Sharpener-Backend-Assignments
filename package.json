@@ -1,0 +1,19 @@
+{
+  "name": "sharpener_backend_assignment",
+  "version": "1.0.0",
+  "description": "Assignments for sharpener tech backend course",
+  "main": "app.js",
+  "scripts": {
+    "test": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shailendrasharma28/Sharpener-Backend-Assignments.git"
+  },
+  "author": "Shailendra Sharma",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/shailendrasharma28/Sharpener-Backend-Assignments/issues"
+  },
+  "homepage": "https://github.com/shailendrasharma28/Sharpener-Backend-Assignments#readme"
+}
