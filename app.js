@@ -8,6 +8,13 @@ app.get("/", (req, res) => {
   res.send(`<h1>Welcome to the homepage!</h1>`)
 })
 
+// Dynamic Routes for userdetails using url params and query params
+app.get("/welcome/:username", (req, res) => {
+  const {username} = req.params;
+  const {role} = req.query;
+  res.send(`<h1> Welcome ${username}, your role is ${role}</h1>`)
+})
+
 // All recommended routes
 app.get("/products", (req, res) => {
   res.send(`<h1>Here is the list of all products</h1>`)
