@@ -2,6 +2,13 @@ const port = 4000;
 const express = require('express');
 const app = express();
 
+// Middleware which logs the method of request and Url
+app.use((req, res, next) => {
+  const method = req.method;
+  const url = req.url;
+  console.log(`${method} request made to ${url}`);
+  next();
+})
 
 // homepage route
 app.get("/", (req, res) => {
