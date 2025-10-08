@@ -20,5 +20,8 @@
   "homepage": "https://github.com/shailendrasharma28/Sharpener-Backend-Assignments#readme",
   "devDependencies": {
     "nodemon": "^3.1.10"
+  },
+  "dependencies": {
+    "express": "^5.1.0"
   }
 }

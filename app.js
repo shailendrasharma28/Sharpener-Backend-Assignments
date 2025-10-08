@@ -1,10 +1,12 @@
-const http = require("http");
-const routes = require("./routes");
-const port = 8080;
+const port = 3000;
+const express = require('express');
+const app = express();
 
-routes.test();
-const server = http.createServer(routes.handler);
+app.use((req, res, next) => {
+  res.send("<h1>Hello World!</h1>");
+  next();
+})
 
-server.listen(port, () => {
-  console.log(`Server listening on port: ${port}`);
+app.listen(port, () => {
+  console.log(`Server is up and running on port ${port}! Ready to handle requests.`);
 });
