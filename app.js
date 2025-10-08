@@ -1,8 +1,7 @@
 const express = require('express');
 const app = express();
 const homeRoutes = require("./routes/homepageRoutes");
-const productRoutes = require("./routes/productRoutes");
-const categpryRoutes = require("./routes/categoriesRoutes");
+const bookRoutes = require("./routes/BooksRoutes");
 
 // Port Defined...
 const port = 4000;
@@ -17,8 +16,7 @@ app.use((req, res, next) => {
 
 // Routes handling with express routes
 app.use("/", homeRoutes);
-app.use("/products", productRoutes);
-app.use("/categories", categpryRoutes);
+app.use("/books", bookRoutes);
 
 // Wildcard Route handling with 404 not found errror page
 app.use((req, res) => {
