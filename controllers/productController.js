@@ -1,19 +1,9 @@
-const productService = require("../services/productService");
+const path = require("path")
 
 const productController = {
   getAllProducts: (req, res) => {
-    const response = productService.allProdcuctresponse()
-    res.send(response);
-  },
-
-  addProduct: (req, res) => {
-    const response = productService.addProdcuctresponse()
-    res.send(response);
-  },
-
-  getProductById: (req, res) => {
-    const response = productService.getProdcuctByIdresponse(req.params)
-    res.send(response);
+    const file = path.join(__dirname,"../","view", "product.html")
+    res.sendFile(file);
   },
 };
 
