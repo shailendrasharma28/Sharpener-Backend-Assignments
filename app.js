@@ -2,10 +2,15 @@ const express = require('express');
 const app = express();
 const homeRoutes = require("./routes/homeRoutes");
 const productRoutes = require("./routes/productRoutes");
+const cors = require("cors")
 
 // Port Defined...
 const port = 4000;
-
+app.use(express.static('public'));
+app.use(express.json());
+app.use(cors({
+  origin: 'http://www.localhost:4000'
+}));
 // Middleware which logs the method of request and Url
 app.use((req, res, next) => {
   const method = req.method;
@@ -13,7 +18,6 @@ app.use((req, res, next) => {
   console.log(`${method} request made to ${url}`);
   next();
 })
-
 // Routes handling with express routes
 app.use("/", homeRoutes);
 app.use("/api/products", productRoutes);

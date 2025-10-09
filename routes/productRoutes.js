@@ -4,5 +4,6 @@ const router = express.Router();
 
 // All recommended product routes
 router.get("/", productController.getAllProducts);
+router.post("/", productController.addProduct);
 
 module.exports = router;
