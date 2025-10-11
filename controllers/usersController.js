@@ -1,11 +1,13 @@
 const db = require("../config/db-connection");
+const Book = require("../models/bookModel.js");
 const User = require("../models/userModel");
 
 const userController = {
     addUser: async (req, res) => {
-        const {username, email, phone} = req.body;
+        const {username, email, phone, bookName} = req.body;
         try {
-            const user = await User.create({name:username, email:email, phone:phone})
+            const user = await User.create({name:username, email:email, phone:phone});
+            const book = await Book.create({bookName, user_id: user.id})
             console.log("user added successfully!");
             
             res.status(200).json(user);

@@ -3,6 +3,7 @@ const app = express();
 const cors = require("cors");
 const db = require('./config/db-connection');
 const studentRouter = require('./routes/usersRoutes');
+const BookRouter = require('./routes/bookRoutes');
 
 // Port Defined...
 const port = 4000;
@@ -14,6 +15,7 @@ app.use(cors({
 
 //Routes
 app.use("/users", studentRouter);
+app.use("/books", BookRouter);
 
 // Middleware which logs the method of request and Url
 app.use((req, res, next) => {
