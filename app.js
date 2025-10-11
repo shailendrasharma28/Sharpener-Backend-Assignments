@@ -1,7 +1,8 @@
 const express = require('express');
 const app = express();
 const cors = require("cors");
-const dbConfig = require('./DBConfig');
+const db = require('./config/db-connection');
+const userRouter = require('./routes/userRoutes');
 
 // Port Defined...
 const port = 4000;
@@ -11,8 +12,8 @@ app.use(cors({
   origin: 'http://www.localhost:4000'
 }));
 
-// Mysql setup
-dbConfig();
+//Routes
+app.use("/users", userRouter);
 
 // Middleware which logs the method of request and Url
 app.use((req, res, next) => {
