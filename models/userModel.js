@@ -19,7 +19,7 @@ User.init({
        allowNull: true
     },
 
-    age: {
+    phone: {
         type: DataTypes.STRING,
        allowNull: true
     }

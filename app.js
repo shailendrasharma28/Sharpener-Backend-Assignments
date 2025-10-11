@@ -3,19 +3,17 @@ const app = express();
 const cors = require("cors");
 const db = require('./config/db-connection');
 const studentRouter = require('./routes/usersRoutes');
-const busRouter = require('./routes/busRoutes');
 
 // Port Defined...
 const port = 4000;
 app.use(express.static('public'));
 app.use(express.json());
 app.use(cors({
-  origin: 'http://www.localhost:4000'
+  origin: "*"
 }));
 
 //Routes
 app.use("/users", studentRouter);
-app.use("/buses", busRouter);
 
 // Middleware which logs the method of request and Url
 app.use((req, res, next) => {
@@ -25,7 +23,7 @@ app.use((req, res, next) => {
   next();
 })
 
-db.sync().then(() => {
+db.sync({alter: true}).then(() => {
   app.listen(port, () => {
     console.log(`Server is running on http://localhost:${port}`);
   });
