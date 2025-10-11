@@ -17,6 +17,21 @@ const userController = {
         });
     },
 
+    getUsers: (req, res) => {
+        const getQuery = `SELECT * FROM users`;
+
+        db.execute(getQuery, (err, results) => {
+            if(err) {
+                console.log(err);
+                res.status(500).send("Error fetching user!");
+                db.end();
+                return;
+            }
+            res.status(201).send("User details fetched successfully!");
+            console.log(`User details:`, results);
+        });
+    },
+
     updateUser: (req, res) => {
         const {id} = req.params;
         const {name, email} = req.body;
