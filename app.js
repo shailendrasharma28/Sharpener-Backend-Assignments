@@ -23,7 +23,12 @@ app.use((req, res, next) => {
   next();
 })
 
+db.sync().then(() => {
+  app.listen(port, () => {
+    console.log(`Server is running on http://localhost:${port}`);
+  });
+})
+.catch((err) => {
+  console.log("Unable to connect with databse!");
+})
 // Listening server on port...
-app.listen(port, () => {
-  console.log(`Server is running on http://localhost:${port}`);
-});
