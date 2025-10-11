@@ -2,8 +2,7 @@ const express = require('express');
 const app = express();
 const cors = require("cors");
 const db = require('./config/db-connection');
-const userRouter = require('./routes/userRoutes');
-const busRouter = require('./routes/busRoutes');
+const studentRouter = require('./routes/studentRoutes');
 
 // Port Defined...
 const port = 4000;
@@ -14,8 +13,7 @@ app.use(cors({
 }));
 
 //Routes
-app.use("/users", userRouter);
-app.use("/buses", busRouter);
+app.use("/students", studentRouter);
 
 // Middleware which logs the method of request and Url
 app.use((req, res, next) => {
