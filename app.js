@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
-const mysql = require("mysql2")
-const cors = require("cors")
+const cors = require("cors");
+const dbConfig = require('./DBConfig');
 
 // Port Defined...
 const port = 4000;
@@ -12,19 +12,7 @@ app.use(cors({
 }));
 
 // Mysql setup
-const connection = mysql.createConnection({
-  host: "localhost",
-  user: "root",
-  password: "",
-  database: 'mydb'
-});
-
-connection.connect((err) => {
-  if(err) {
-    console.log(err);
-  }
-  console.log("Connection established Successfully!");
-})
+dbConfig();
 
 // Middleware which logs the method of request and Url
 app.use((req, res, next) => {
