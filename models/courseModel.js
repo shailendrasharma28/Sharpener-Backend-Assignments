@@ -2,32 +2,23 @@ const { Model, DataTypes } = require("sequelize");
 const sequelize = require("../config/db-connection");
 const User = require("./userModel");
 
-class Book extends Model{};
-Book.init({
+class Course extends Model{};
+Course.init({
     id: {
         type: DataTypes.INTEGER,
         primaryKey: true,
         autoIncrement: true
     },
 
-    bookName: {
+    courseName: {
         type: DataTypes.STRING,
        allowNull: true
     },
-
-    user_id: {
-        type: DataTypes.INTEGER,
-       allowNull: false,
-       references: {
-        model: "users",
-        key: "id"
-       }
-    },
 }, {
     sequelize,
-    modelName: "Book",
-    tableName: "books",
+    modelName: "Course",
+    tableName: "courses",
     timestamps: true
 });
 
-module.exports = Book;
+module.exports = Course;
